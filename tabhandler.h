@@ -12,7 +12,6 @@ namespace tabhandler {
     };
 
     struct tab {
-        //  int count;
         int id;
         bool sameline;
         bool imguitabs = false;
