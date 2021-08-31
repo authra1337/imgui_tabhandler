@@ -2,7 +2,7 @@
 A Tab handler made for ImGui.
 
 example usage: 
-```cplusplus
+```cpp
         int curtab = 0;
         tabhandler::tab tabs;
         tabs_.sameline = true;
