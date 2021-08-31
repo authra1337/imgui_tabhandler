@@ -15,11 +15,15 @@ namespace tabhandler {
         //  int count;
         int id;
         bool sameline;
+        bool imguitabs = false;
         list<tabitem> items;
         void add(tabitem item) {
             items.push_back(item);
         }
         void create() {
+            if (imguitabs) {
+                ImGui::BeginTabBar("");
+            }
             for (tabitem x : items) {
                 for (int i = 0; i < sizeof(items) / sizeof(items); i++)
                 {
@@ -27,13 +31,22 @@ namespace tabhandler {
                     ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4(0.28f, 0.56f, 1.00f, 1.00f));
                     ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(0.20f, 0.25f, 0.29f, 1.00));
                     ImGui::PushStyleVar(ImGuiStyleVar_FrameRounding, 4.0f);
-                    if (sameline) {
-                        ImGui::SetCursorPosY(5);
+                    if (imguitabs) {
+                        if (ImGui::BeginTabItem(x.name.c_str()))
+                        {
+                            id = x.id;
+                            ImGui::EndTabItem();
+                        }
                     }
-                    if (ImGui::Button(x.name.c_str(), ImVec2(250 / 2.5 - 9, 25)))
-                        id = x.id;
-                    if (sameline) {
-                        ImGui::SameLine();
+                    else {
+                        if (sameline) {
+                            ImGui::SetCursorPosY(5);
+                        }
+                        if (ImGui::Button(x.name.c_str(), ImVec2(250 / 2.5 - 9, 25)))
+                            id = x.id;
+                        if (sameline) {
+                            ImGui::SameLine();
+                        }
                     }
                     ImGui::PopStyleColor();
                     ImGui::PopStyleColor();
@@ -41,6 +54,9 @@ namespace tabhandler {
                     ImGui::PopStyleVar();
 
                 }
+            }
+            if (imguitabs) {
+                ImGui::EndTabBar();
             }
         }
     };
