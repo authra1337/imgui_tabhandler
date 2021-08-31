@@ -15,4 +15,9 @@ example usage:
         if (curtab == 1) { 
           ImGui::Text("You are on tab 1!");
         }
+        //or
+        if (tabs.id == 1) {
+           ImGui::Text("You are on tab 1!");
+        }
+     
 ```
