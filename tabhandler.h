@@ -59,7 +59,6 @@ namespace tabhandler {
             }
         }
     };
-
     tabitem createtab(string name, int id) {
         tabitem temp;
         temp.id = id;
