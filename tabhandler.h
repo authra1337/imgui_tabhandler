@@ -7,7 +7,7 @@ using namespace std;
 
 namespace tabhandler {
     struct tabitem {
-        std::string name;//string name tmm
+        string name
         int id;
     };
 
