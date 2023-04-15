@@ -7,8 +7,8 @@ using namespace std;
 
 namespace tabhandler {
     struct tabitem {
-        string name
-        int id;
+        string name;
+            int id;
     };
 
     struct tab {
